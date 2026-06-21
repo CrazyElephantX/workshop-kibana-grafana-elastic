@@ -9,6 +9,15 @@ echo '{"level":"ERROR","service":"payment-service","message":"Payment failed","o
 
 echo '{"level":"INFO","service":"order-service","message":"Order delivered","order_id":"ORD-003","user_id":"USR-15"}' \
   | nc localhost 5555
+echo '{"level":"INFO","service":"order-service","message":"Order delivered","order_id":"ORD-003","user_id":"USR-15"}' \
+  | nc localhost 5555
+echo '{"level":"INFO","service":"order-service","message":"Order delivered","order_id":"ORD-003","user_id":"USR-15"}' \
+  | nc localhost 5555
+
+echo '{"level":"WARNING","service":"order-service","message":"Order delivered","order_id":"ORD-003","user_id":"USR-15"}' \
+  | nc localhost 5555
+echo '{"level":"WARNING","service":"order-service","message":"Order delivered","order_id":"ORD-003","user_id":"USR-15"}' \
+  | nc localhost 5555
 
 
 

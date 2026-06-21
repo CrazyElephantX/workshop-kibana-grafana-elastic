@@ -1,0 +1,19 @@
+for i in {1..10}; do
+  echo "{\"level\":\"ERROR\",\"service\":\"payment-service\",\"message\":\"Bank gateway timeout\",\"order_id\":\"ORD-$(($RANDOM % 100))\",\"duration_ms\":$(($RANDOM % 3000 + 4000)),\"error_code\":\"GW_TIMEOUT\"}" | nc -q1 localhost 5555
+  sleep 0.5
+done
+
+for i in {1..20}; do
+  echo "{\"level\":\"INFO\",\"service\":\"order-service\",\"message\":\"Order processed\",\"order_id\":\"ORD-$(($RANDOM % 100))\",\"duration_ms\":$(($RANDOM % 200 + 50))}" | nc -q1 localhost 5555
+  sleep 0.2
+done
+
+for i in {1..10}; do
+  echo "{\"level\":\"ERROR\",\"service\":\"payment-service\",\"message\":\"Bank gateway timeout\",\"order_id\":\"ORD-$(($RANDOM % 100))\",\"duration_ms\":$(($RANDOM % 3000 + 4000)),\"error_code\":\"GW_TIMEOUT\"}" | nc  localhost 5555
+  sleep 0.5
+done
+
+for i in {1..20}; do
+  echo "{\"level\":\"INFO\",\"service\":\"order-service\",\"message\":\"Order processed\",\"order_id\":\"ORD-$(($RANDOM % 100))\",\"duration_ms\":$(($RANDOM % 200 + 50))}" | nc  localhost 5555
+  sleep 0.2
+done
