@@ -4,6 +4,8 @@ echo '{"level":"INFO","service":"order-service","message":"Order created","order
 
 echo '{"level":"ERROR","service":"payment-service","message":"Payment failed","order_id":"ORD-002","error":"Timeout connecting to bank gateway","duration_ms":5001}' \
   | nc localhost 5555
+echo '{"level":"ERROR","service":"payment-service","message":"Payment failed","order_id":"ORD-003","error":"Timeout connecting to bank gateway","duration_ms":5001}' \
+  | nc localhost 5555
 
 echo '{"level":"INFO","service":"order-service","message":"Order delivered","order_id":"ORD-003","user_id":"USR-15"}' \
   | nc localhost 5555
