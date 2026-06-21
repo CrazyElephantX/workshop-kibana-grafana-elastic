@@ -47,7 +47,7 @@ services:
       - ./logstash/pipeline:/usr/share/logstash/pipeline
     ports:
       - "5044:5044"
-      - "5000:5000/tcp"
+      - "5555:5000/tcp"
     networks:
       - monitoring
     depends_on:
