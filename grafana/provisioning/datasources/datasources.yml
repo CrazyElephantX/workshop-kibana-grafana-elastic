@@ -1,0 +1,16 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    url: http://prometheus:9090
+    isDefault: true
+    access: proxy
+
+  - name: Elasticsearch
+    type: elasticsearch
+    url: http://elasticsearch:9200
+    database: "workshop-logs-*"
+    jsonData:
+      timeField: "@timestamp"
+      esVersion: "8.0.0"
